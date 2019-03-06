@@ -4,15 +4,8 @@ import android.app.ActivityOptions;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.SearchView;
 import android.util.Log;
-import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.firebase.FirebaseApp;
 
@@ -24,18 +17,27 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         FirebaseApp.initializeApp(this);
-//
-//        searchviewdestmain = (android.widget.SearchView) findViewById(R.id.searchbar_main_dest);
-//
-//        searchviewdestmain.setOnSearchClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, v ,"src_shared_searchbar_main");
-//                Intent i = new Intent(MainActivity.this,SearchSouceFromMain.class);
-//                startActivityForResult(i,2);
-//            }
-//        });
-        EditText editt = findViewById(R.id.editText);
+
+        searchviewdestmain = (android.widget.SearchView) findViewById(R.id.destination);
+        searchviewmain = findViewById(R.id.source);
+        searchviewdestmain.setOnSearchClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, v ,"src_shared_searchbar_main");
+                Intent i = new Intent(MainActivity.this,SearchSouceFromMain.class);
+                startActivityForResult(i,2);
+            }
+        });
+
+        /*searchviewmain.setOnSearchClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, v ,"src_shared_searchbar_main");
+                Intent i = new Intent(MainActivity.this,SearchSouceFromMain.class);
+                startActivityForResult(i,1);
+            }
+        });*/
+        /*EditText editt = findViewById(R.id.editText);
         editt.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -44,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(i,1);
                 return false;
             }
-        });
+        });*/
 
     }
     @Override
@@ -53,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         if (requestcode == 2) {
             if (resultcode == RESULT_OK) {
                 Log.i("hghgg", "Hardik222222222222222");
-                searchviewdestmain = (android.widget.SearchView) findViewById(R.id.searchbar_main_dest);
+                searchviewdestmain = (android.widget.SearchView) findViewById(R.id.destination);
                 String temp = (String) data.getExtras().getString("passsrc");
                 Log.i("112222222", temp);
 
@@ -68,26 +70,24 @@ public class MainActivity extends AppCompatActivity {
 
             }
         }
-        if (requestcode == 1) {
+        else{
             if (resultcode == RESULT_OK) {
-//                Log.i("hghgg", "Hardik1111111111111111");
-//                searchviewmain = (android.widget.SearchView) findViewById(R.id.searchbar_main_src);
-//
-//
+              Log.i("hghgg", "Hardik1111111111111111");
+                searchviewmain = (android.widget.SearchView) findViewById(R.id.source);
+
+
               String temp = (String) data.getExtras().getString("passsrc");
-//                Log.i("11hghgg", temp);
-//                searchviewmain.setIconifiedByDefault(true);
-//                searchviewmain.setFocusable(true);
-//                searchviewmain.setIconified(false);
+                Log.i("11hghgg", temp);
+                searchviewmain.setIconifiedByDefault(true);
+                searchviewmain.setFocusable(true);
+                searchviewmain.setIconified(false);
 
-                EditText editt = findViewById(R.id.editText);
-                editt.setText(temp,EditText.BufferType.EDITABLE);
-                editt.clearFocus();
 
-////                searchviewmain.requestFocus();
-//                searchviewmain.requestFocusFromTouch();
-//                searchviewmain.setQuery(temp, false);
-//                searchviewmain.clearFocus();
+
+                searchviewmain.requestFocus();
+                searchviewmain.requestFocusFromTouch();
+                searchviewmain.setQuery(temp, false);
+                searchviewmain.clearFocus();
 
             }
 

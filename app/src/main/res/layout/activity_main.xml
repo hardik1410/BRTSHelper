@@ -49,11 +49,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchbar_main_dest"
+        app:layout_constraintTop_toBottomOf="@+id/destination"
         tools:text="Search" />
 
     <SearchView
-        android:id="@+id/searchbar_main_src"
+        android:id="@+id/source"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -69,7 +69,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <SearchView
-        android:id="@+id/searchbar_main_dest"
+        android:id="@+id/destination"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -102,21 +102,7 @@
         android:layout_marginTop="28dp"
         android:text="Enter Destination"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchbar_main_src" />
-
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="8dp"
-        android:ems="10"
-        android:hint="Name"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchbussesbutton" />
+        app:layout_constraintTop_toBottomOf="@+id/source" />
 
 </android.support.constraint.ConstraintLayout>
 

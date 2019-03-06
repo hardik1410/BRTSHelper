@@ -15,9 +15,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SearchSouceFromMain extends Activity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
+
 
 
 
@@ -30,19 +32,21 @@ public class SearchSouceFromMain extends Activity {
 //                searchviewmain.requestFocus();
         searchview_sfma.requestFocusFromTouch();
 
-        final List<String> listofstation = new ArrayList<String>();
+        ArrayList<String> listofstation=new ArrayList<String>() ;
         ListView searchlistsrc = findViewById(R.id.listview_src);
-        listofstation.add("Nehrunagar");
-        listofstation.add("Swaminarayan Mandir");
-        listofstation.add("Little Wings");
 
+        listofstation =Station.getStationNames();
+        final ArrayList<String> temp=listofstation;
         final ArrayAdapter<String> arraysrcadapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,listofstation);
-
+        for(int i=0;i<listofstation.size();i++)
+        {
+            Log.i("temp",listofstation.get(i));
+        }
         searchlistsrc.setAdapter(arraysrcadapter);
         searchview_sfma.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                if (listofstation.contains(query)) {
+                if (temp.contains(query)) {
                     arraysrcadapter.getFilter().filter(query);
 
                 }else {
