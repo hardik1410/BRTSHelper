@@ -2,6 +2,7 @@ package com.milan.brtshelper;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v4.view.GravityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -203,4 +204,8 @@ public class LoginActivity extends AppCompatActivity {
             Log.d("Ver444","Err");
         }
     };
+    /*  @Override
+    public void onBackPressed(){
+
+    }*/
 }

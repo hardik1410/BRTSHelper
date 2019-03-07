@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_simplebus_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TestTravellingActivity"></activity>
+        <activity android:name=".BusActivity"></activity>
+        <activity android:name=".StationDetails" />
         <activity android:name=".ProfileDisplayActivity" />
         <activity android:name=".NavigationMapActivity" />
         <activity android:name=".ContactUsActivity" />
